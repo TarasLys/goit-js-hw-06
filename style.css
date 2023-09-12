@@ -1,6 +1,13 @@
+.all-dz {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
 /* ------------------------------3 задание----------------------------------- */
-/* body {
+body {
     padding-top: 50px;
+    
     
 }
 
@@ -9,6 +16,7 @@
     flex-direction: column;
     align-items: center;
     gap: 30px;
+    margin-right: 60px;
     
 }
 
@@ -18,17 +26,19 @@
 }
 
 .picture {
-    width: 600px;
-} */
+    width: 500px;
+}
 /* ------------------------------------------------------------------------- */
 /* -------------------------------4 задание--------------------------------- */
 
 
-/* body {
+body {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-left: 60px;
+    padding-right: 60px;
 }
 
 .form {
@@ -36,11 +46,13 @@
     margin: 0 auto;
     text-align: center;
     padding: 32px;
-} */
+    margin-right: 60px;
+    margin-left: 60px;
+}
 
 
 /* -------------------------------6 задание-------------------------------- */
-/* #validation-input {
+#validation-input {
     border: 3px solid #bdbdbd;
 }
 
@@ -50,4 +62,4 @@
 
 #validation-input.invalid {
     border-color: #f44336;
-} */
+}
