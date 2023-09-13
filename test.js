@@ -15,7 +15,7 @@ console.log(`Number of categories: ${liCount}`);
     const titleName = item.firstElementChild.outerText
 ;
     console.log(`Category: ${titleName}`);
-    //console.dir(item.firstElementChild);
+    
 
     const liliCount = item.lastElementChild.querySelectorAll('li').length
     console.log(`Elements: ${liliCount}`);
@@ -42,7 +42,7 @@ const listIngredients = document.querySelector("#ingredients")
 const ingredName = ingredients.map((ingredient) => {
     const liElement = document.createElement("li");
     liElement.textContent = ingredient;
-    // console.dir(liElement)
+    
     return liElement;
 })
 listIngredients.append(...ingredName);
@@ -109,7 +109,7 @@ fieldText.addEventListener("input", (evt) => {
 });
 // -------------------------------------------------------------------------------------/
 // --------------------------------d.z.#6-----------------------------------------------/
-// ????????????????????????????
+
 
 const input = document.querySelector("#validation-input");
 const dataLength = input.getAttribute("data-length");
@@ -128,16 +128,7 @@ if (input.value.length === Number(dataLength)) {
 
 
 // -------------------------------d.z.#7--------------------------------/
-// РЕШЕНИЕ 1 выводит числа
-// const inputChange = document.querySelector('#font-size-control');
-// const countSpan = document.querySelector('#text');
 
-// inputChange.addEventListener("input",() => {
-// countSpan.textContent = inputChange.value;
-//   console.dir(inputChange);
-// })
-
-// РЕШЕНИЕ 2 увеличивает объект
 const inputChange = document.querySelector('#font-size-control');
 const countText = document.querySelector('#text');
 
@@ -147,42 +138,11 @@ inputChange.addEventListener('input', () => {
 
 // --------------------------------d.z.#8----------------------------/
 
-// ???????????????????????????????????????????????
-
-// const formReg = document.querySelector(".login-form");
-// const inputs = formReg.querySelectorAll('input');
- 
-// formReg.addEventListener("submit", (evt) => {
-//   evt.preventDefault();
-// //console.log(inputs);
-//   for (let input of inputs) {
-
-//     //console.log(input);
-//     if (!input.value) {
-//    alert('Всі поля повинні бути заповнені!');
-
-// break;
-
-//     } else {
-
-//       const formData = {
-//         elements: { email, password }
-//       } = evt.currentTarget;
-
-      
-//       break;
-//     }
-
-//   }
-//    console.log({ email: email.value, password: password.value } );
-//   formReg.reset();
-// })
-
 
 const formReg = document.querySelector('.login-form')
   
   
-  formReg.addEventListener('submit', function (event) {
+  formReg.addEventListener('submit', (event) => {
   event.preventDefault();
 
   const emailInput = event.currentTarget.elements.email;
@@ -190,7 +150,7 @@ const formReg = document.querySelector('.login-form')
 
     if (!emailInput.value || !passwordInput.value) {
     
-        alert('Всі поля повинні бути заповнені!');
+        alert("всі поля повинні бути заповнені!!!");
         return;
     }
     
