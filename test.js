@@ -42,10 +42,10 @@ const listIngredients = document.querySelector("#ingredients")
 const ingredName = ingredients.map((ingredient) => {
     const liElement = document.createElement("li");
     liElement.textContent = ingredient;
-    console.dir(liElement)
+    // console.dir(liElement)
     return liElement;
 })
-listIngredients.append(ingredName);
+listIngredients.append(...ingredName);
 
 //-----------------------------------------------------------------------------/
 //--------------------------------------d.z.#3-----------------------------------------/
@@ -99,7 +99,7 @@ const fieldText = document.querySelector("#name-input");
 const outputText = document.querySelector("#name-output");
 
 fieldText.addEventListener("input", (evt) => {
-  let input = evt.currentTarget.value;
+  let input = evt.currentTarget.value.trim();
   if (input === "") {
     outputText.textContent = 'Anonymous';
   } else {
@@ -109,31 +109,23 @@ fieldText.addEventListener("input", (evt) => {
 });
 // -------------------------------------------------------------------------------------/
 // --------------------------------d.z.#6-----------------------------------------------/
-
-const textInput = document.querySelector("#validation-input");
-
-textInput.addEventListener("blur", (evt) => {
-  if (textInput.selectionEnd === 6) {
-    return textInput.style.borderColor = '#4caf50';
-  }
-  else {console.dir(textInput)
-  return textInput.style.borderColor = '#f44336';
-  }
-});
-
+// ????????????????????????????
 
 const input = document.querySelector("#validation-input");
 const dataLength = input.getAttribute("data-length");
 
 input.addEventListener("blur", () => {
 if (input.value.length === Number(dataLength)) {
-    return input.style.borderColor = '#4caf50';
+  input.classList.remove('invalid');
+  input.classList.add('valid');
   }
   else {console.dir(input)
-  return input.style.borderColor = '#f44336';
+  input.classList.remove('valid');
+  input.classList.add('invalid');
   }
 
 })
+
 
 // -------------------------------d.z.#7--------------------------------/
 // РЕШЕНИЕ 1 выводит числа
@@ -155,29 +147,66 @@ inputChange.addEventListener('input', () => {
 
 // --------------------------------d.z.#8----------------------------/
 
-const formReg = document.querySelector(".login-form");
-const inputs = formReg.querySelectorAll('input');
+// ???????????????????????????????????????????????
+
+// const formReg = document.querySelector(".login-form");
+// const inputs = formReg.querySelectorAll('input');
  
-formReg.addEventListener("submit", (evt) => {
-  evt.preventDefault();
+// formReg.addEventListener("submit", (evt) => {
+//   evt.preventDefault();
+// //console.log(inputs);
+//   for (let input of inputs) {
 
-  for (let input of inputs) {
-    if (input.value) {
-      const formData = {
-        elements: { email, password }
-      } = evt.currentTarget;
+//     //console.log(input);
+//     if (!input.value) {
+//    alert('Всі поля повинні бути заповнені!');
 
-      console.log({ email: email.value, password: password.value });
-      break;
-    } else {
-alert('Всі поля повинні бути заповнені!');
+// break;
 
-break;
+//     } else {
+
+//       const formData = {
+//         elements: { email, password }
+//       } = evt.currentTarget;
+
       
+//       break;
+//     }
+
+//   }
+//    console.log({ email: email.value, password: password.value } );
+//   formReg.reset();
+// })
+
+
+const formReg = document.querySelector('.login-form')
+  
+  
+  formReg.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  const emailInput = event.currentTarget.elements.email;
+  const passwordInput = event.currentTarget.elements.password;
+
+    if (!emailInput.value || !passwordInput.value) {
+    
+        alert('Всі поля повинні бути заповнені!');
+        return;
     }
-  }
+    
+const formData = {
+    email: emailInput.value,
+    password: passwordInput.value
+  };
+
+  console.log(formData);
+
   formReg.reset();
-})
+    
+});
+
+
+
 
 // ---------------------------d.z.#9-----------------------------------/
 
@@ -186,10 +215,10 @@ const btnClick = document.querySelector(".change-color");
 
 btnClick.addEventListener('click', () => {
  
-
-  nameColor.textContent = getRandomHexColor();
-  document.body.style.backgroundColor = getRandomHexColor();
-  console.log(nameColor);
+const randomCol = getRandomHexColor()
+  nameColor.textContent = randomCol;
+  document.body.style.backgroundColor = randomCol;
+  // console.log(nameColor);
 
 })
 
